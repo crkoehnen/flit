@@ -5,7 +5,9 @@
             [hiccup.middleware :refer [wrap-base-url]]
             [compojure.handler :as handler]
             [compojure.route :as route]
-            [flit.routes.home :refer [home-routes]]))
+            [flit.routes.home :refer [home-routes]]
+            [ring.adapter.jetty :as jetty]
+            [environ.core :refer [env]]))
 
 (defn init []
   (println "flit is starting"))
@@ -23,3 +25,6 @@
       (wrap-base-url)))
 
 
+(defn -main [& [port]]
+  (let [port (Integer. (or port (env :port) 5000))]
+    (jetty/run-jetty #'app {:port port :join? false})))
