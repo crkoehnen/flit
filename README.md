@@ -1,19 +1,19 @@
 # flit
 
-FIXME
-
-## Prerequisites
-
-You will need [Leiningen][1] 1.7.0 or above installed.
-
-[1]: https://github.com/technomancy/leiningen
+An example of making a compojure-app template compatible with heroku.
 
 ## Running
 
 To start a web server for the application, run:
 
     lein ring server
+or
+    lein run -m flit.handler
+or
+    java $JVM_OPTS -cp target/flit-standalone.jar clojure.main -m flit.handler
 
-## License
 
-Copyright © 2014 FIXME
+## todo
+
+drawbridge
+
